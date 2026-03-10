@@ -1,0 +1,59 @@
+<div class="container">
+
+  <h2 *ngIf="!id">Crear Persona</h2>
+  <h2 *ngIf="id">Editar Persona</h2>
+
+  <form (ngSubmit)="save()">
+
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text"
+      name="nombre"
+      [(ngModel)]="person.nombre"
+      required>
+    </div>
+
+    <div class="form-group">
+      <label>Apellido</label>
+      <input type="text"
+      name="apellido"
+      [(ngModel)]="person.apellido"
+      required>
+    </div>
+
+    <div class="form-group">
+      <label>Fecha Nacimiento</label>
+      <input type="date"
+      name="fechaNacimiento"
+      [(ngModel)]="person.fechaNacimiento">
+    </div>
+
+    <div class="form-group">
+      <label>Puesto</label>
+      <input type="text"
+      name="puesto"
+      [(ngModel)]="person.puesto">
+    </div>
+
+    <div class="form-group">
+      <label>Sueldo</label>
+      <input type="number"
+      name="sueldo"
+      [(ngModel)]="person.sueldo">
+    </div>
+
+    <div class="buttons">
+
+      <button class="btn btn-save" type="submit">
+        Guardar
+      </button>
+
+      <button type="button" class="btn btn-cancel" (click)="cancel()">
+        Cancelar
+      </button>
+
+    </div>
+
+  </form>
+
+</div>

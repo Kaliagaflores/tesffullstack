@@ -1,0 +1,54 @@
+<div class="container">
+
+  <h2>Listado de Personas</h2>
+
+  <button class="btn btn-create" (click)="create()">
+    Crear Persona
+  </button>
+
+  <table *ngIf="persons.length > 0">
+
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Fecha Nacimiento</th>
+        <th>Puesto</th>
+        <th>Sueldo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let p of persons">
+
+        <td>{{p.id}}</td>
+        <td>{{p.nombre}}</td>
+        <td>{{p.apellido}}</td>
+        <td>{{p.fechaNacimiento}}</td>
+        <td>{{p.puesto}}</td>
+        <td>{{p.sueldo}}</td>
+
+        <td class="actions">
+
+          <button class="btn btn-edit" (click)="edit(p.id)">
+            Editar
+          </button>
+
+          <button class="btn btn-delete" (click)="delete(p.id)">
+            Eliminar
+          </button>
+
+        </td>
+
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div *ngIf="persons.length === 0" class="empty">
+    No hay registros disponibles
+  </div>
+
+</div>
