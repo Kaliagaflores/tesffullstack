@@ -88,4 +88,13 @@ public class PersonServiceImpl implements PersonService {
         return person;
     }
 
+    @Override
+    public PersonResponse getById(Long id) {
+
+        Person person = personRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Persona no encontrada"));
+
+        return mapToResponse(person);
+    }
+
 }

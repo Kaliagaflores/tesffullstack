@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/person")
 @RequiredArgsConstructor
@@ -48,6 +49,14 @@ public class PersonController {
         personService.delete(id);
 
         return new ApiResponse(true, "Persona eliminada", null);
+    }
+
+    @GetMapping("/{id}")
+    public ApiResponse getById(@PathVariable Long id) {
+
+        PersonResponse data = personService.getById(id);
+
+        return new ApiResponse(true, "Persona encontrada", data);
     }
 
 }

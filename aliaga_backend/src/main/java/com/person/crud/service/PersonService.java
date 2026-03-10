@@ -15,4 +15,7 @@ public interface PersonService {
 
     void delete(Long id);
 
+    PersonResponse getById(Long id);
+
+
 }
